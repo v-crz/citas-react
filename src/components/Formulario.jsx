@@ -1,4 +1,13 @@
+import { useState, useEffect } from 'react';
+
 const Formulario = () => {
+  const [nombre, setNombre] = useState('');
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    console.log('Enviando formulario')
+  }
+
   return (
     <div className="md:w-1/2 lg:w-2/5">
       <h2 className="font-black text-3xl text-center">
@@ -12,17 +21,23 @@ const Formulario = () => {
         </span>
       </p>
 
-      <form className="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
+      <form 
+        onSubmit={handleSubmit}
+        className="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
         <div className="mb-5">
           <label htmlFor="mascota"
             className="block text-gray-700 uppercase font-bold">
-            Nombre Mascota
+            Nombre Mascota {nombre}
           </label>
           <input 
             id="mascota"
             type="text"
             placeholder="Nombre de la Mascota"
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rouded-md"
+            value={nombre}
+            onChange={
+              (evt)=> setNombre(evt.target.value)
+            }
           />
         </div>
 
