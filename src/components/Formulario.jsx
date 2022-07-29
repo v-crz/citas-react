@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Error from './Error';
 
 const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
@@ -10,7 +10,7 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
 
   const [error, setError] = useState(false);
 
-  userEffect(()=>{
+  useEffect(()=>{
     if(Object.keys(paciente).length > 0){
       setNombre(paciente.nombre);
       setPropietario(paciente.propietario);
