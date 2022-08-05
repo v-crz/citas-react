@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import { useState, useEffect } from 'react';
 import Error from './Error';
 
@@ -20,11 +21,7 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
     }
   }, [paciente])
 
-  const generarId = () => {
-    const random = Math.random().toString(36).substring(2);
-    const fecha = Date.now().toString(36);
-    return random + fecha;
-  }
+  const generarId = () => nanoid();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -72,35 +69,35 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
   }
 
   return (
-    <div className="md:w-1/2 lg:w-2/5 mx-5">
-      <h2 className="font-black text-3xl text-center">
+    <div className="form">
+      <h2 className="form-title">
         Seguimiento Pacientes
       </h2>
 
-      <p className="text-lg mt-5 text-center mb-10">
+      <p className="form-text">
         Añade Pacientes y {''}
-        <span className="text-indigo-600 font-bold">
+        <span className="form-text-alt">
           Adminístralos
         </span>
       </p>
 
       <form 
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
+        className="form-element"
       >
         {error && <Error>
           <p>Todos los campos son obligatorios</p>
         </Error>}
         <div className="mb-5">
           <label htmlFor="mascota"
-            className="block text-gray-700 uppercase font-bold">
+            className="form-label">
             Nombre Mascota
           </label>
           <input 
             id="mascota"
             type="text"
             placeholder="Nombre de la Mascota"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rouded-md"
+            className="form-input"
             value={nombre}
             onChange={
               (evt)=> setNombre(evt.target.value)
@@ -110,14 +107,14 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
 
         <div className="mb-5">
           <label htmlFor="propietario"
-            className="block text-gray-700 uppercase font-bold">
+            className="form-label">
             Nombre Propietario
           </label>
           <input 
             id="propietario"
             type="text"
             placeholder="Nombre del Propietario"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rouded-md"
+            className="form-input"
             value={propietario}
             onChange={
               (evt)=> setPropietario(evt.target.value)
@@ -127,14 +124,14 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
 
         <div className="mb-5">
           <label htmlFor="email"
-            className="block text-gray-700 uppercase font-bold">
+            className="form-label">
             Email
           </label>
           <input 
             id="email"
             type="email"
             placeholder="Email Contacto Propietario"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rouded-md"
+            className="form-input"
             value={email}
             onChange={
               (evt)=> setEmail(evt.target.value)
@@ -144,13 +141,13 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
 
         <div className="mb-5">
           <label htmlFor="alta"
-            className="block text-gray-700 uppercase font-bold">
+            className="form-label">
             Alta
           </label>
           <input 
             id="alta"
             type="date"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rouded-md"
+            className="form-input"
             value={fecha}
             onChange={
               (evt)=> setFecha(evt.target.value)
@@ -160,13 +157,13 @@ const Formulario = ({pacientes, setPacientes, paciente, setPaciente}) => {
 
         <div className="mb-5">
           <label htmlFor="sintomas"
-            className="block text-gray-700 uppercase font-bold">
+            className="form-label">
             Síntomas
           </label>
           <textarea 
             id="sintomas"
             placeholder="Describe los Síntomas"
-            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rouded-md"
+            className="form-input"
             value={sintomas}
             onChange={
               (evt)=> setSintomas(evt.target.value)

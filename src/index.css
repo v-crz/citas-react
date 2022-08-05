@@ -1,3 +1,77 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .card-title {
+        @apply font-bold mb-3 text-gray-700 uppercase;
+    }
+
+    .card-text {
+        @apply font-normal normal-case;
+    }
+
+    .card {
+        @apply mx-5 my-10 bg-white shadow-md px-5 py-10 rounded-xl;
+    }
+
+    .card-buttons {
+        @apply flex justify-between mt-10;
+    }
+
+    .btn-edit {
+        @apply py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase rounded-lg;
+    }
+
+    .btn-remove {
+        @apply py-2 px-10 bg-red-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg;
+    }
+
+    .header-title {
+        @apply font-black text-5xl text-center md:w-2/3 mx-auto;
+    }
+
+    .listado {
+        @apply md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll;
+    }
+
+    .listado-h2 {
+        @apply font-black text-3xl text-center;
+    }
+
+    .listado-p {
+        @apply text-xl mt-5 mb-10 text-center;
+    }
+
+    .listado-p-alt {
+        @apply text-indigo-600 font-bold;
+    }
+
+    .form {
+        @apply md:w-1/2 lg:w-2/5 mx-5;
+    }
+
+    .form-title {
+        @apply font-black text-3xl text-center;
+    }
+
+    .form-text {
+        @apply text-lg mt-5 text-center mb-10;
+    }
+
+    .form-text-alt {
+        @apply text-indigo-600 font-bold;
+    }
+
+    .form-element {
+        @apply bg-white shadow-md rounded-lg py-10 px-5 mb-10;
+    }
+
+    .form-label {
+        @apply block text-gray-700 uppercase font-bold;
+    }
+
+    .form-input {
+        @apply border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md;
+    }
+}

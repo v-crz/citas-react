@@ -3,13 +3,13 @@ import Paciente from "./Paciente";
 const ListadoPacientes = ({pacientes, setPaciente, eliminarPaciente}) => {
 
   return (
-    <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll">
+    <div className="listado">
       {pacientes && pacientes.length ? (
         <>
-          <h2 className="font-black text-3xl text-center">Listado pacientes</h2>
-          <p className="text-xl mt-5 mb-10 text-center">
+          <h2 className="listado-h2">Listado pacientes</h2>
+          <p className="listado-p">
             Administra tus {''}
-            <span className="text-indigo-600 font-bold">Pacientes y Citas</span>
+            <span className="listado-p-alt">Pacientes y Citas</span>
           </p>
     
           { pacientes.map((paciente) => 
@@ -23,10 +23,10 @@ const ListadoPacientes = ({pacientes, setPaciente, eliminarPaciente}) => {
         </>
       ) : (
         <>
-          <h2 className="font-black text-3xl text-center">No hay pacientes</h2>
-          <p className="text-xl mt-5 mb-10 text-center">
+          <h2 className="listado-h2">No hay pacientes</h2>
+          <p className="listado-p">
             Comienza agregando pacientes {''}
-            <span className="text-indigo-600 font-bold">y aparecerán en este lugar</span>
+            <span className="listado-p-alt">y aparecerán en este lugar</span>
           </p>
         </>
       )}
